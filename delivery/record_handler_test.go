@@ -36,8 +36,8 @@ func TestRecordHandler_GetSearch(t *testing.T) {
 	// get new request to the endpoint
 	req, err := http.NewRequest("GET", "/search?q=test",
 		nil)
-	//wrong implementation for query param
-	//strings.NewReader(url.Values{"q": {"test"}}.Encode())
+	/*wrong implementation query param insert for validation
+	strings.NewReader(url.Values{"q": {"test"}}.Encode())*/
 	assert.NoError(t, err)
 
 	// recorder
@@ -45,6 +45,6 @@ func TestRecordHandler_GetSearch(t *testing.T) {
 	handler := http.HandlerFunc(recordHandler.GetSearch)
 	handler.ServeHTTP(rr, req)
 
-	//assert.Equal(t, http.StatusOK, rr.Code)
+	assert.Equal(t, http.StatusOK, rr.Code)
 	assert.NotNil(t, req)
 }
