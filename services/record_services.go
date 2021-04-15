@@ -8,6 +8,8 @@ import (
 )
 
 var path = "data.gz"
+var check = make(map[string]bool, 0)
+var cached = make(map[string][]entity.Record)
 
 type RecordServices interface {
 	Search(query string) ([]entity.Record, error)
@@ -28,9 +30,16 @@ func (s *RecordServ) Search(query string) ([]entity.Record, error) {
 		log.Fatal(err)
 	}
 	for _, record := range records.Records {
+		if check[strings.ToLower(query)] {
+			log.Println("Cached successful")
+			return cached[strings.ToLower(query)], nil
+		}
+
 		if strings.Contains(strings.ToLower(record.Title), strings.ToLower(query)) {
 			result = append(result, record)
 		}
 	}
+	cached[strings.ToLower(query)] = result
+	check[strings.ToLower(query)] = true
 	return result, nil
 }
