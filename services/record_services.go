@@ -9,7 +9,7 @@ import (
 
 var path = "data.gz"
 var check = make(map[string]bool, 0)
-var cached = make(map[string][]entity.Record)
+var cached = make(map[string][]entity.Record, 0)
 
 type RecordServices interface {
 	Search(query string) ([]entity.Record, error)
