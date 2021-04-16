@@ -13,3 +13,8 @@ type Record struct {
 type Searcher struct {
 	Records []Record
 }
+
+type RecordWithScore struct {
+	Record Record
+	Score int64
+}
