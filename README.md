@@ -6,11 +6,13 @@ You could see the live version of this app [here](https://serene-depths-66275.he
 ## Changes
 - **`Case insensitive`**, I changed the mechanism of this project to the insensitive case for query/keyword because the
   meaning of the search is to get all the "relevant" items according to the keyword and not limited to the case-sensitive.
-- **`Search by Title`**, The previous project using Title and Content to get the result of the keyword, sometimes this leads to irrelevant results from the keyword, so I changed only search by the Title items.
 - **`Add unit testing`**
 - **`HTML Validation`**, I added simple HTML validation with an alert if the keyword is empty.
 - **`Clean Architecture`**, I update the structure of this project from all functions in the main file to a separate directory according to the Clean Architecture structure.
-
+- **`Misspelling Handle`**, I added misspelling feature to correct
+the misspelled query. example search: ihone 8, hnda civic, tyota camry, etc.
+- **`Ranked Result`**, Result gonna be ranked according to the 
+most match with query.
 
 ## Deploy Method
 
